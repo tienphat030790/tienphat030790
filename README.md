@@ -1,114 +1,93 @@
-![](assets/angel_logo.png)
+# Rails Girls Guides
 
-[![license](http://img.shields.io/badge/license-Apache2.0-brightgreen.svg?style=flat)](https://github.com/Angel-ML/angel/blob/branch-3.2.0/LICENSE.TXT)
-[![Release Version](https://img.shields.io/badge/release-3.2.0-red.svg)](https://github.com/tencent/angel/releases)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/tencent/angel/pulls)
-[![Download Code](https://img.shields.io/badge/download-zip-green.svg)](https://github.com/Angel-ML/angel/archive/refs/heads/branch-3.2.0.zip)
+<a href="https://railsgirls.com" target="_blank"><img alt="Rails Girls" src="/images/rails-girls-logo.png" width="15%" align="right"></a>
 
-[(ZH-CN Version)](./README_CN.md)
+The purpose of Rails Girls is to give tools for women to understand technology. The Rails Girls events do this by providing a great first experience on building the Internet.
 
-**Angel** is a high-performance distributed machine learning and graph computing platform based on the philosophy of Parameter Server. It is tuned for performance with big data from Tencent and has a wide range of applicability and stability, demonstrating increasing advantage in handling higher dimension model. Angel is jointly developed by Tencent and Peking University, taking account of both high availability  in industry and innovation in academia.
+Rails Girls was founded at the end of 2010 in Helsinki. Originally intended as a one-time event, we never thought to see so many chapters from all around the world! This guide will help you get started.
 
-With model-centered core design concept, **Angel** partitions parameters of complex models into multiple parameter-server nodes, and implements a variety of machine learning algorithms and graph algorithms using efficient model-updating interfaces and functions, as well as flexible consistency model for synchronization.
+You can use our materials and instructions to roll out your own workshop in your city, workplace or kitchen! Read more about Rails Girls at https://railsgirls.com
 
-**Angel** is developed with **Java** and **Scala**.  It supports running on **Yarn**. With **PS Service** abstraction, it supports **Spark on Angel**.  Graph computing and deep learning frameworks support is under development and will be released in the future.
+## Quick start
 
-We welcome everyone interested in machine learning or graph computing to contribute code, create issues or pull requests. Please refer to  [Angel Contribution Guide](https://github.com/Tencent/angel/blob/master/CONTRIBUTING.md) for more detail.
+View the guides at https://guides.railsgirls.com or clone this repo and install & run [jekyll](https://github.com/mojombo/jekyll)
 
-## Introduction to Angel
+### Installing jekyll
 
-* [Architecture](./docs/overview/architecture_en.md)
-* [Code Framework](./docs/overview/code_framework_en.md)
-* [Design](./docs/overview/design_philosophy_en.md)
-* [Spark on Angel](./docs/overview/spark_on_angel_en.md)
-  * [Machine Learning](./docs/overview/spark_on_angel_en.md)
-  * [Graph Computing](./docs/overview/angel_graph_sona_en.md)
+```
+$ cd guides.railsgirls.com
+```
 
-## Design
+```
+$ bundle install
+```
 
-- [Model Partitioner](./docs/design/model_partitioner_en.md)
-- [SyncController](./docs/design/sync_controller_en.md)
-- [psFunc](./docs/design/psfFunc_en.md)
-- [Core API](./docs/apis/core_api_en.md)
+### Pygments and Code Highlighting
 
+The guides use the [pygments](https://pygments.org/) library to do syntax highlighting. If you don't have it installed you won't be able to see the highlight sections like the following:
 
-## Quick Start
+```
+{% highlight %}
+{% endhighlight %}
+```
 
-* [Quick Start Example](./docs/tutorials/spark_on_angel_quick_start_en.md)
+If you aren't editing the code blocks, you can safely ignore this. If you want pygments, you can follow the [install instructions](https://jekyllrb.com/docs/installation/) in the "Pygments" section.
 
-## Deployment
+### Coach highlights
 
-* [Compilation Guide](./docs/deploy/source_compile_en.md)
-* [Running on Local](./docs/deploy/local_run_en.md)
-* [Running on Yarn](./docs/deploy/run_on_yarn_en.md)
-* [Configuration Details](./docs/deploy/config_details_en.md)
-* [Resource Configuration Guide](./docs/deploy/resource_config_guide_en.md)
+A custom Liquid tag is available for coach notes. Add these to guides when you want the coach to explain something. Use this tag to make sure the visual element is always the same and easy to recognize.
 
-## Programming Guide
+```
+{% coach %}
+Add helpful text here for the coach!
+{% endcoach %}
+```
 
-* [Spark on Angel Programming Guide](./docs/programmers_guide/spark_on_angel_programing_guide_en.md)
+### Run jekyll
 
-## Algorithm
+```
+$ bundle exec jekyll server --watch
+```
 
-- [**Angel or Spark On Angel？**](./docs/algo/angel_or_spark_on_angel.md)
-- [**Algorithm Parameter Description**](./docs/algo/model_config_details.md)
-- **Angel**
-  - **Traditional Machine Learning Methods**
-    - [Logistic Regression(LR)](./docs/algo/lr_on_angel_en.md)
-    - [Support Vector Machine(SVM)](./docs/algo/svm_on_angel_en.md)
-    - [Factorization Machine(FM)](./docs/algo/fm_on_angel.md)
-    - [Linear Regression](./docs/algo/linear_on_angel_en.md)
-    - [Robust Regression](./docs/algo/robust_on_angel_en.md)
-    - [Softmax Regression](./docs/algo/softmax_on_angel_en.md)
-    - [KMeans](./docs/algo/kmeans_on_angel_en.md)
-    - [GBDT](./docs/algo/gbdt_on_angel_en.md)
-    - [LDA\*](./docs/algo/lda_on_angel_en.md) ([WarpLDA](./docs/algo/warp_lda_on_angel.md))
-- **Spark on Angel**
-  - **Angel Mllib**
-    - [FM](https://github.com/Angel-ML/PyTorch-On-Angel/blob/branch-0.2.0/docs/recommendation.md)
-    - [DeepFM](https://github.com/Angel-ML/PyTorch-On-Angel/blob/branch-0.2.0/docs/recommendation.md)
-    - [DeepAndWide](https://github.com/Angel-ML/PyTorch-On-Angel/blob/branch-0.2.0/docs/recommendation.md)
-    - [DCN](https://github.com/Angel-ML/PyTorch-On-Angel/blob/branch-0.2.0/docs/recommendation.md)
-    - [XDeepFM](https://github.com/Angel-ML/PyTorch-On-Angel/blob/branch-0.2.0/docs/recommendation.md)
-    - [AttentionFM](https://github.com/Angel-ML/PyTorch-On-Angel/blob/branch-0.2.0/docs/recommendation.md)
-    - [PNN](https://github.com/Angel-ML/PyTorch-On-Angel/blob/branch-0.2.0/docs/recommendation.md)
-    - [FTRL](./docs/algo/ftrl_lr_spark.md)
-    - [Logistic Regression(LR)](./docs/algo/sona/lr_sona.md)
-    - [FTRLFM](./docs/algo/ftrl_fm_spark_en.md)
-    - [GBDT](./docs/algo/sona/feature_gbdt_sona.md)
-  - **Angel Graph**
-    - [PageRank](./docs/algo/sona/pagerank_on_sona_en.md)
-    - [KCORE](./docs/algo/sona/kcore_sona_en.md)
-    - [HIndex](./docs/algo/sona/hindex_sona_en.md)
-    - [Closeness](./docs/algo/sona/closeness_sona_en.md)
-    - [CommonFriends](./docs/algo/sona/commonfriends_sona_en.md)
-    - [ConnectedComponents](./docs/algo/sona/CC_sona_en.md)
-    - [TriangleCountingUndirected](./docs/algo/sona/triangle_count_undirected_en.md)
-    - [Louvain](./docs/algo/sona/louvain_sona_en.md)
-    - [LPA](./docs/algo/sona/LPA_sona_en.md)
-    - [LINE](./docs/algo/sona/line_sona_en.md)
-    - [Word2Vec](./docs/algo/sona/word2vec_sona_en.md)
-    - [GraphSage](https://github.com/Angel-ML/PyTorch-On-Angel/blob/branch-0.2.0/docs/graph.md)
-    - [GCN](https://github.com/Angel-ML/PyTorch-On-Angel/blob/branch-0.2.0/docs/graph.md)
-    - [DGI](https://github.com/Angel-ML/PyTorch-On-Angel/blob/branch-0.2.0/docs/graph.md)
+### Styling
 
-## Community
-* Mailing list: angel-tsc@lists.deeplearningfoundation.org
-* Angel homepage in Linux FD: https://angelml.ai/
-* [Committers & Contributors](./COMMITTERS.md)
-* [Contributing to Angel](./CONTRIBUTING.md)
-* [Roadmap](https://github.com/Angel-ML/angel/wiki/Roadmap)
+Wrap keyboard shortcuts with [kbd](https://www.w3.org/wiki/HTML/Elements/kbd) HTML tag.
 
-## FAQ
-* [Angel FAQ](https://github.com/Tencent/angel/wiki/Angel%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98)
+To make posts consistent in style use `Ctrl+C` over `CTRL-c`/`ctrl+c`
 
-## Papers
-  1. [PaSca: A Graph Neural Architecture Search System under the Scalable Paradigm](https://dl.acm.org/doi/pdf/10.1145/3485447.3511986). WWW, 2022
-  2. [Graph Attention Multi-Layer Perceptron](https://dl.acm.org/doi/pdf/10.1145/3534678.3539121). KDD, 2022
-  3. [Node Dependent Local Smoothing for Scalable Graph Learning](https://proceedings.neurips.cc/paper/2021/file/a9eb812238f753132652ae09963a05e9-Paper.pdf). NeurlPS, 2021
-  4. [PSGraph: How Tencent trains extremely large-scale graphs with Spark?](https://conferences.computer.org/icde/2020/pdfs/ICDE2020-5acyuqhpJ6L9P042wmjY1p/290300b549/290300b549.pdf).ICDE, 2020.
-  5. [DimBoost: Boosting Gradient Boosting Decision Tree to Higher Dimensions](https://dl.acm.org/citation.cfm?id=3196892). SIGMOD, 2018.
-  6. [LDA*: A Robust and Large-scale Topic Modeling System](http://www.vldb.org/pvldb/vol10/p1406-yu.pdf). VLDB, 2017
-  7. [Heterogeneity-aware Distributed Parameter Servers](http://net.pku.edu.cn/~cuibin/Papers/2017%20sigmod.pdf). SIGMOD, 2017
-  8. [Angel: a new large-scale machine learning system](http://net.pku.edu.cn/~cuibin/Papers/2017NSRangel.pdf). National Science Review (NSR), 2017
-  9. [TencentBoost: A Gradient Boosting Tree System with Parameter Server](http://net.pku.edu.cn/~cuibin/Papers/2017%20ICDE%20boost.pdf).	ICDE, 2017
+```
+To shut down the server you can hit <kbd>Ctrl</kbd>+<kbd>C</kbd>
+```
+
+### Having trouble?
+
+You might find some useful hints in this jekyll issue if it's not working as expected: [Issue 503](https://github.com/mojombo/jekyll/issues/503)
+
+## Contributing a Guide
+
+To contribute a guide, view the instructions at https://guides.railsgirls.com/contributing
+
+## X
+
+For updates and more, follow [@railsgirls](https://twitter.com/railsgirls) on X
+
+## Website & Blog
+
+Official website and blog for Rails Girls movement can be found at https://railsgirls.com
+
+## E-mail list
+
+Global mailing list for Rails Girls events can be found at https://groups.google.com/group/rails-girls-team
+
+## Credits
+
+* Karri Saarinen / [@karrisaarinen](https://twitter.com/karrisaarinen) / [github](https://github.com/ksaa)
+* Linda Liukas / [@lindaliukas](https://twitter.com/lindaliukas) / [github](https://github.com/lindaliukas)
+* Vesa Vänskä / [@vesan](https://twitter.com/vesan) / [github](https://github.com/vesan)
+* Terence Lee / [@hone02](https://twitter.com/hone02) / [github](https://github.com/hone)
+* Tom de Bruijn / [@tombruijn](https://mastodon.social/@tombruijn) / [GitHub](https://github.com/tombruijn)
+
+..and all the other coaches and people making Rails Girls awesome. Please add yourself!
+
+## LICENSE
+[![License: CC BY-SA 3.0](https://licensebuttons.net/l/by-sa/3.0/80x15.png)](https://creativecommons.org/licenses/by-sa/2.0/)
